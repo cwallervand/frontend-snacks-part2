@@ -4,7 +4,25 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Front-end snacks, part deux</title>
+
+    <template id="topicTemplate">
+      <style>
+        h2,
+        a {
+          align-self: center;
+        }
+        a {
+          margin-block-end: 0.5rem;
+        }
+      </style>
+      <section>
+        <h2>Topic title</h2>
+        <a href="#">Can I use it?</a>
+        <slot>Topic content slot</slot>
+      </section>
+    </template>
   </head>
+
   <body>
     <div id="app">
       <header>
@@ -14,7 +32,67 @@
           <button type="submit">Find on page</button>
         </search>
       </header>
-      <main></main>
+      <main>
+        <section>
+          <details>
+            <summary>TLDR;</summary>
+            <ul>
+              <li>Semantic search element is here!</li>
+              <li>New details element. Can be used for exclusive acordions!</li>
+            </ul>
+          </details>
+        </section>
+
+        <topic-section
+          topic-title="New search element"
+          can-i-use-href="https://caniuse.com/mdn-html_elements_search"
+        >
+          <p>
+            HTML has a new semantic element named search. Not much to say about
+            it,
+            <span>
+              <a
+                href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/search"
+              >
+                documentation can be found here.</a
+              >
+            </span>
+          </p>
+        </topic-section>
+
+        <topic-section
+          topic-title="New detalils element"
+          can-i-use-href="https://caniuse.com/details"
+        >
+          <p>
+            HTML has a details element. Documentatiopn found
+            <a
+              href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details"
+              >here.</a
+            >
+          </p>
+        </topic-section>
+        <section>
+          <h2>References</h2>
+          <ul>
+            <li>
+              <a
+                href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/search"
+                >MDN: Search element
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details"
+                >MDN: details element</a
+              >
+            </li>
+          </ul>
+          https://developer.mozilla.org/en-US/blog/html-details-exclusive-accordions/
+          https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_templates_and_slots
+          https://developer.mozilla.org/en-US/docs/Web/HTML/Element/template
+        </section>
+      </main>
     </div>
     <script type="module" src="/main.js"></script>
   </body>

@@ -1,3 +1,5 @@
+@layer reset, base, layout, components;
+
 @layer reset {
   /* 1. Use a more-intuitive box-sizing model */
   *,
@@ -72,15 +74,48 @@
   h1 {
     margin-block: 1rem;
   }
+  h2 {
+    margin-block-end: 0.7rem;
+  }
 }
 
 @layer layout {
+  main {
+    padding-inline: 4rem;
+  }
+
   header {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-block-end: 1rem;
+  }
+
+  section {
+    display: flex;
+    flex-direction: column;
+    padding-inline: 2rem;
+    margin-block: 2rem;
+  }
+
+  topic-section {
+    display: block;
+    margin-block-end: 4rem;
   }
 }
+
+/* @layer components {
+  .topic {
+    h2,
+    a {
+      align-self: center;
+    }
+  }
+} */
+
+/* topic-section h2 {
+  color: red;
+} */
 
 /* :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
