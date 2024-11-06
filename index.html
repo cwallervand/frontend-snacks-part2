@@ -14,11 +14,19 @@
         a {
           margin-block-end: 0.5rem;
         }
+
+        .topic-references {
+          margin-block-start: 1rem;
+        }
       </style>
       <section>
         <h2>Topic title</h2>
         <a href="#">Can I use it?</a>
         <slot>Topic content slot</slot>
+        <div class="topic-references">
+          <h3>References</h3>
+          <slot name="topic-references"><p>No references</p></slot>
+        </div>
       </section>
     </template>
   </head>
@@ -34,10 +42,13 @@
       </header>
       <main>
         <section>
-          <details>
+          <details id="tldr">
             <summary>TLDR;</summary>
             <ul>
-              <li>Semantic search element is here!</li>
+              <li>
+                Semantic search element is here, use it to wrap (form) controls
+                that are used to do a search or filter.
+              </li>
               <li>New details element. Can be used for exclusive acordions!</li>
             </ul>
           </details>
@@ -48,16 +59,17 @@
           can-i-use-href="https://caniuse.com/mdn-html_elements_search"
         >
           <p>
-            HTML has a new semantic element named search. Not much to say about
-            it,
-            <span>
+            Semantic search element is here, use it to wrap (form) controls that
+            are used to do a search or filter.
+          </p>
+          <ul slot="topic-references">
+            <li>
               <a
                 href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/search"
-              >
-                documentation can be found here.</a
-              >
-            </span>
-          </p>
+                >MDN: Search element
+              </a>
+            </li>
+          </ul>
         </topic-section>
 
         <topic-section
@@ -71,16 +83,7 @@
               >here.</a
             >
           </p>
-        </topic-section>
-        <section>
-          <h2>References</h2>
-          <ul>
-            <li>
-              <a
-                href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/search"
-                >MDN: Search element
-              </a>
-            </li>
+          <ul slot="topic-references">
             <li>
               <a
                 href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details"
@@ -88,9 +91,20 @@
               >
             </li>
           </ul>
+        </topic-section>
+        <section>
+          <h2>References</h2>
           https://developer.mozilla.org/en-US/blog/html-details-exclusive-accordions/
           https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_templates_and_slots
           https://developer.mozilla.org/en-US/docs/Web/HTML/Element/template
+          https://eisenbergeffect.medium.com/using-global-styles-in-shadow-dom-5b80e802e89d
+          https://developer.mozilla.org/en-US/docs/Web/CSS/::slotted
+          https://developer.mozilla.org/en-US/docs/Web/API/ShadowRoot/adoptedStyleSheets
+          https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_custom_elements
+          https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_templates_and_slots
+          https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Cascade_layers
+          https://www.youtube.com/watch?v=NDNRGW-_1EE&t=826s
+          https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details
         </section>
       </main>
     </div>
