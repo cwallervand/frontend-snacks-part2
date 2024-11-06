@@ -49,7 +49,10 @@
                 Semantic search element is here, use it to wrap (form) controls
                 that are used to do a search or filter.
               </li>
-              <li>New details element. Can be used for exclusive acordions!</li>
+              <li>
+                New details (and summary) element. Can be used for exclusive
+                acordions.
+              </li>
             </ul>
           </details>
         </section>
@@ -73,15 +76,27 @@
         </topic-section>
 
         <topic-section
-          topic-title="New detalils element"
+          topic-title="New detalils (and summary) element"
           can-i-use-href="https://caniuse.com/details"
         >
           <p>
-            HTML has a details element. Documentatiopn found
-            <a
-              href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details"
-              >here.</a
-            >
+            HTML has a new details element. This can be used for esclusive
+            accordions.
+          </p>
+          <p>
+            <b>Commonly asked questions</b>
+            <details class="qAndA" name="questionsThree">
+              <summary>What is your name?</summary>
+              <p>Sir Robin of Camelot.</p>
+            </details>
+            <details class="qAndA" name="questionsThree">
+              <summary>What is your quest?</summary>
+              <p>To seek the Holy Grail.</p>
+            </details>
+            <details class="qAndA" name="questionsThree">
+              <summary>What is the capital of Assyria?</summary>
+              <p>🤷</p>
+            </details>
           </p>
           <ul slot="topic-references">
             <li>
