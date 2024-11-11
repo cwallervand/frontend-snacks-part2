@@ -113,6 +113,18 @@
 }
 
 @layer components {
+  #tldr {
+    display: flex;
+    justify-items: center;
+
+    summary h2 {
+      display: inline-block;
+    }
+
+    li {
+      margin-block-end: 0.5rem;
+    }
+  }
   .qAndA {
     border: 1px solid black;
     padding: 0.7rem;
