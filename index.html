@@ -8,20 +8,22 @@
     <template id="topicTemplate">
       <style>
         h2,
-        a {
+        a.can-i-use {
           align-self: center;
-        }
-        a {
-          margin-block-end: 0.5rem;
         }
 
         .topic-references {
           margin-block-start: 1rem;
         }
+
+        a.can-i-use {
+          text-decoration: wavy underline;
+          margin-block-end: 0.5rem;
+        }
       </style>
       <section>
         <h2>Topic title</h2>
-        <a href="#">Can I use it?</a>
+        <a href="#" class="can-i-use">Can I use it?</a>
         <slot>Topic content slot</slot>
         <div class="topic-references">
           <h3>References</h3>
@@ -146,6 +148,74 @@
             </li>
           </ul>
         </topic-section>
+        <topic-section
+          topic-title="CSS Cascade Layers"
+          can-i-use-href="https://caniuse.com/css-cascade-layers"
+        >
+          <p>
+            <strong>This paragraph is just a plain old p-tag.</strong>
+            <br />Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+            do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+            enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
+            ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+            culpa qui officia deserunt mollit anim id est laborum.
+          </p>
+          <p class="paragraph">
+            <strong>This paragraph is a p-tag with class "paragraph".</strong>
+            <br />Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+            do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+            enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
+            ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+            culpa qui officia deserunt mollit anim id est laborum.
+          </p>
+          <p class="paragraph quote">
+            <strong
+              >This paragraph is a p-tag with class "paragraph" and
+              "quote".</strong
+            >
+            <br />
+            <q>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad minim veniam, quis nostrud exercitation ullamco laboris
+              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+              reprehenderit in voluptate velit esse cillum dolore eu fugiat
+              nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+              sunt in culpa qui officia deserunt mollit anim id est laborum.</q
+            >
+          </p>
+          <ul slot="topic-references">
+            <li>
+              <a
+                href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Cascade_layers"
+                >MDN: Cascade Layers</a
+              >
+            </li>
+            <li>
+              <a href="https://www.youtube.com/watch?v=NDNRGW-_1EE"
+                >YouTube: No more specificity issues?! (or all new ones 🤔) - A
+                look at CSS Cascade Layers</a
+              >
+            </li>
+            <li>
+              <a href="https://www.youtube.com/watch?v=ilrPpSQJb3U"
+                >YouTube: CSS Cascade Layers: An overview of the new @layer and
+                layer() CSS primitives
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.bram.us/2021/09/15/the-future-of-css-cascade-layers-css-at-layer/"
+              >
+                Bram.us: The Future of CSS: Cascade Layers (CSS @layer)
+              </a>
+            </li>
+          </ul>
+        </topic-section>
         <section>
           <h2>References</h2>
           https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_templates_and_slots
@@ -155,8 +225,6 @@
           https://developer.mozilla.org/en-US/docs/Web/API/ShadowRoot/adoptedStyleSheets
           https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_custom_elements
           https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_templates_and_slots
-          https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Cascade_layers
-          https://www.youtube.com/watch?v=NDNRGW-_1EE&t=826s
         </section>
       </main>
     </div>
