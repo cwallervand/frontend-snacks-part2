@@ -26,7 +26,6 @@ findOnPageSerrchButton.addEventListener('click', () => {
 
 let globalSheets = null;
 function getSharedStyleSheets() {
-  console.log('getSharedStyleSheets');
   if (globalSheets === null) {
     globalSheets = Array.from(document.styleSheets).map((styleSheet) => {
       const sheet = new CSSStyleSheet();
@@ -38,7 +37,6 @@ function getSharedStyleSheets() {
       return sheet;
     });
   }
-  console.log('globalSheets', globalSheets);
   return globalSheets;
 }
 
@@ -80,3 +78,53 @@ class TopicScection extends HTMLElement {
 }
 
 customElements.define('topic-section', TopicScection);
+
+class DemoCustomElement extends HTMLElement {
+  constructor() {
+    super();
+  }
+}
+
+customElements.define('demo-custom-element', DemoCustomElement);
+
+class WordCount extends HTMLSpanElement {
+  constructor() {
+    super();
+  }
+
+  connectedCallback() {
+    const parentNode = this.parentNode;
+
+    const count = `Word count: ${countWords(parentNode)}`;
+
+    this.innerHTML = `${count}`;
+
+    // // Create a shadow root
+    // const shadow = this.attachShadow({ mode: 'open' });
+
+    // // Create text node and add word count to it
+    // const text = document.createElement('span');
+    // text.textContent = count;
+
+    // // Append it to the shadow root
+    // shadow.appendChild(text);
+
+    // // Update count when element content changes
+    // this.parentNode.addEventListener('input', () => {
+    //   text.textContent = `Words: ${countWords(wcParent)}`;
+    // });
+    // this.innerHTML = `<big>${this.innerHTML}</big>`;
+  }
+}
+
+customElements.define('word-count', WordCount, {
+  extends: 'span',
+});
+
+function countWords(node) {
+  const text = node.innerText || node.textContent;
+  return text
+    .trim()
+    .split(/\s+/g)
+    .filter((a) => a.trim().length > 0).length;
+}
