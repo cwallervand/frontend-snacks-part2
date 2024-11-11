@@ -91,10 +91,6 @@
     text-decoration: none;
   }
 
-  q {
-    font-style: italic;
-  }
-
   p {
     margin-block: 0.7rem;
   }
@@ -122,6 +118,12 @@
   topic-section {
     display: block;
     margin-block-end: 4rem;
+  }
+
+  useless-component,
+  useless-shadow-component {
+    display: block;
+    margin-block-end: 1rem;
   }
 }
 
@@ -151,6 +153,15 @@
 
     &[open] > summary {
       list-style-type: '\1F44C';
+    }
+  }
+
+  useless-shadow-component {
+    h3 {
+      color: hotpink; /* Wont work because of shadow DOM */
+    }
+    p {
+      color: hotpink; /* Will work for all p's that are slotted */
     }
   }
 }

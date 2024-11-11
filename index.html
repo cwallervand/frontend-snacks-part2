@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Front-end snacks, part deux</title>
 
-    <template id="topicTemplate">
+    <template id="topicSectionTemplate">
       <style>
         h2,
         a.can-i-use {
@@ -30,6 +30,44 @@
           <slot name="topic-references"><p>No references</p></slot>
         </div>
       </section>
+    </template>
+
+    <template id="uselessComponentTemplate">
+      <style>
+        .web-component {
+          padding: 2rem;
+          border: 1px solid hotpink;
+          border-radius: 25px;
+        }
+      </style>
+      <div class="web-component">
+        <h3>Useless component title</h3>
+        <slot>
+          <p>And this is most certainly a useless slot.</p>
+        </slot>
+      </div>
+    </template>
+
+    <template id="uselessShadowComponentTemplate">
+      <style>
+        .web-shadow-component {
+          padding: 2rem;
+          border: 1px solid hotpink;
+          border-radius: 25px;
+        }
+        ::slotted(p) {
+          padding: 1rem;
+          border: 2px dotted hotpink;
+          color: purple;
+        }
+      </style>
+      <div class="web-shadow-component">
+        <h3>Useless shadow component title</h3>
+        <slot>
+          <p>But this is not a useless slot.</p>
+        </slot>
+        <p>Non-slotted p-tag</p>
+      </div>
     </template>
   </head>
 
@@ -156,26 +194,61 @@
           topic-title="A brief look at Web Components"
           can-i-use-href="https://caniuse.com/css-cascade-layers"
         >
-          <ul>
-            <li>
-              The name of a custom element must start with a lowercase letter,
-              contain a hyphen, and satisfy certain other rules listed in the
-              specification's definition of a valid name.
-            </li>
-            <li>
-              <p>
-                There are two types of custom element you can create; autonomous
-                custom elements and customized built-in elements.
+          <div>
+            <ul>
+              <li>
+                The name of a custom element must start with a lowercase letter,
+                contain a hyphen, and satisfy certain other rules listed in the
+                specification's definition of a valid name.
+              </li>
+              <li>
+                <p>
+                  There are two types of custom element you can create;
+                  autonomous custom elements and customized built-in elements.
+                </p>
                 <ul>
-                  <li>Autonomous custom elements are standalone elements, that don't inherit from built-in HTML elements.</li>
-                  <li>Customized built-in elements are elements that inherit from, and extend, built-in HTML elements. This approach has limited support because Safari does not plan to support built-in elements.</li>
+                  <li>
+                    Autonomous custom elements are standalone elements, that
+                    don't inherit from built-in HTML elements.
+                  </li>
+                  <li>
+                    Customized built-in elements are elements that inherit from,
+                    and extend, built-in HTML elements. This approach has
+                    limited support because Safari does not plan to support
+                    built-in elements.
+                  </li>
                 </ul>
-              </p>
+              </li>
+            </ul>
+            <div>
+              <word-count>
+                This use of word-count component won't work
+              </word-count>
+            </div>
+            <div>
+              But this use will work.
               <span is="word-count"></span>
-              <div><word-count>This use of word-count component won't work</word-count></div>
-            </li>
-          </ul>
+            </div>
 
+            <useless-component>
+              <p>This should replace the slot in useless-demo-component</p>
+            </useless-component>
+
+            <useless-shadow-component></useless-shadow-component>
+
+            <useless-shadow-component>
+              <p>This should replace the slot in useless-shadow-component</p>
+            </useless-shadow-component>
+
+            <useless-shadow-component>
+              <div>Not a p-tag</div>
+            </useless-shadow-component>
+
+            <div class="web-component">
+              This is not a web component, but how does styling inside
+              components affect the host page? 🤔🤔🤔
+            </div>
+          </div>
           <ul slot="topic-references">
             <li>
               <a
