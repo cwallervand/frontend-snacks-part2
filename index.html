@@ -57,6 +57,10 @@
                 New details (and summary) element. Can be used for exclusive
                 acordions.
               </li>
+              <li>
+                CSS Cascade Layers can be used to better structure you CSS and
+                handle specificity issues.
+              </li>
             </ul>
           </details>
         </section>
@@ -69,14 +73,14 @@
             <q
               cite="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/search"
             >
-              The <code>search</code> HTML element is a container representing
-              the parts of the document or application with form controls or
-              other content related to performing a search or filtering
-              operation. The <code>search</code> element semantically identifies
-              the purpose of the element's contents as having search or
-              filtering capabilities. The search or filtering functionality can
-              be for the website or application, the current web page or
-              document, or the entire Internet or subsection thereof.
+              The search HTML element is a container representing the parts of
+              the document or application with form controls or other content
+              related to performing a search or filtering operation. The search
+              element semantically identifies the purpose of the element's
+              contents as having search or filtering capabilities. The search or
+              filtering functionality can be for the website or application, the
+              current web page or document, or the entire Internet or subsection
+              thereof.
             </q>
           </p>
           <ul slot="topic-references">
@@ -149,6 +153,85 @@
           </ul>
         </topic-section>
         <topic-section
+          topic-title="A brief look at Web Components"
+          can-i-use-href="https://caniuse.com/css-cascade-layers"
+        >
+          <ul>
+            <li>
+              The name of a custom element must start with a lowercase letter,
+              contain a hyphen, and satisfy certain other rules listed in the
+              specification's definition of a valid name.
+            </li>
+            <li>
+              <p>
+                There are two types of custom element you can create; autonomous
+                custom elements and customized built-in elements.
+                <ul>
+                  <li>Autonomous custom elements are standalone elements, that don't inherit from built-in HTML elements.</li>
+                  <li>Customized built-in elements are elements that inherit from, and extend, built-in HTML elements. This approach has limited support because Safari does not plan to support built-in elements.</li>
+                </ul>
+              </p>
+              <span is="word-count"></span>
+              <div><word-count>This use of word-count component won't work</word-count></div>
+            </li>
+          </ul>
+
+          <ul slot="topic-references">
+            <li>
+              <a
+                href="https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_custom_elements"
+                >MDN: Using custom elements
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://developer.mozilla.org/en-US/docs/Web/API/CustomElementRegistry"
+              >
+                MDN: CustomElementRegistry
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/is#browser_compatibility"
+              >
+                MDN: is attribute
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/template"
+                >MDN: HTML template element</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_templates_and_slots"
+                >MDN: Using templates and slots</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://eisenbergeffect.medium.com/using-global-styles-in-shadow-dom-5b80e802e89d"
+              >
+                Using global styles in Shadow DOM
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://developer.mozilla.org/en-US/docs/Web/API/ShadowRoot/adoptedStyleSheets"
+              >
+                MDN: Adopted Style Sheets
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://developer.mozilla.org/en-US/docs/Web/CSS/::slotted"
+                >MDN: ::slotted pseudo-class
+              </a>
+            </li>
+          </ul>
+        </topic-section>
+        <topic-section
           topic-title="CSS Cascade Layers"
           can-i-use-href="https://caniuse.com/css-cascade-layers"
         >
@@ -216,16 +299,6 @@
             </li>
           </ul>
         </topic-section>
-        <section>
-          <h2>References</h2>
-          https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_templates_and_slots
-          https://developer.mozilla.org/en-US/docs/Web/HTML/Element/template
-          https://eisenbergeffect.medium.com/using-global-styles-in-shadow-dom-5b80e802e89d
-          https://developer.mozilla.org/en-US/docs/Web/CSS/::slotted
-          https://developer.mozilla.org/en-US/docs/Web/API/ShadowRoot/adoptedStyleSheets
-          https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_custom_elements
-          https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_templates_and_slots
-        </section>
       </main>
     </div>
     <script type="module" src="/main.js"></script>
