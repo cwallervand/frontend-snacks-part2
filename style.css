@@ -1,167 +1,172 @@
 @layer reset, base, layout, components;
 
 @layer reset {
-  /* 1. Use a more-intuitive box-sizing model */
-  *,
-  *::before,
-  *::after {
-    box-sizing: border-box;
-  }
+	/* 1. Use a more-intuitive box-sizing model */
+	*,
+	*::before,
+	*::after {
+		box-sizing: border-box;
+	}
 
-  /* 2. Remove default margin */
-  * {
-    margin: 0;
-  }
+	/* 2. Remove default margin */
+	* {
+		margin: 0;
+	}
 
-  body {
-    /* 3. Add accessible line-height */
-    line-height: 1.5;
-    /* 4. Improve text rendering */
-    -webkit-font-smoothing: antialiased;
-  }
+	body {
+		/* 3. Add accessible line-height */
+		line-height: 1.5;
+		/* 4. Improve text rendering */
+		-webkit-font-smoothing: antialiased;
+	}
 
-  /* 5. Improve media defaults */
-  img,
-  picture,
-  video,
-  canvas,
-  svg {
-    display: block;
-    max-width: 100%;
-  }
+	/* 5. Improve media defaults */
+	img,
+	picture,
+	video,
+	canvas,
+	svg {
+		display: block;
+		max-width: 100%;
+	}
 
-  /* 6. Inherit fonts for form controls */
-  input,
-  button,
-  textarea,
-  select {
-    font: inherit;
-  }
+	/* 6. Inherit fonts for form controls */
+	input,
+	button,
+	textarea,
+	select {
+		font: inherit;
+	}
 
-  /* 7. Avoid text overflows */
-  p,
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    overflow-wrap: break-word;
-  }
+	/* 7. Avoid text overflows */
+	p,
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		overflow-wrap: break-word;
+	}
 
-  /* 8. Improve line wrapping */
-  p {
-    text-wrap: pretty;
-  }
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    text-wrap: balance;
-  }
+	/* 8. Improve line wrapping */
+	p {
+		text-wrap: pretty;
+	}
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		text-wrap: balance;
+	}
 
-  /*
+	/*
   9. Create a root stacking context
 */
-  #app {
-    isolation: isolate;
-  }
+	#app {
+		isolation: isolate;
+	}
 }
 
 @layer base {
-  *:not(h1, h2, h3, h4, h5, h6) {
-    font-size: 1.07rem;
-  }
-  h1 {
-    margin-block: 1rem;
-    font-size: 2rem;
-  }
-  h2 {
-    margin-block-end: 0.7rem;
-    font-size: 1.5rem;
-  }
+	*:not(h1, h2, h3, h4, h5, h6) {
+		font-size: 1.07rem;
+	}
+	h1 {
+		margin-block: 1rem;
+		font-size: 2rem;
+	}
+	h2 {
+		margin-block-end: 0.7rem;
+		font-size: 1.5rem;
+	}
 
-  details {
-    cursor: pointer;
-  }
+	details {
+		cursor: pointer;
+	}
 
-  a {
-    text-decoration: none;
-  }
+	a {
+		text-decoration: none;
+	}
 
-  p {
-    margin-block: 0.7rem;
-  }
+	p {
+		margin-block: 0.7rem;
+	}
 }
 
 @layer layout {
-  main {
-    padding-inline: 4rem;
-  }
+	main {
+		padding-inline: 4rem;
+	}
 
-  header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-block-end: 1rem;
-  }
+	header {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		margin-block-end: 1rem;
+	}
 
-  section {
-    display: flex;
-    flex-direction: column;
-    padding-inline: 2rem;
-    margin-block: 2rem;
-  }
+	section {
+		display: flex;
+		flex-direction: column;
+		padding-inline: 2rem;
+		margin-block: 2rem;
+	}
 
-  topic-section {
-    display: block;
-    margin-block-end: 4rem;
-  }
+	topic-section {
+		display: block;
+		margin-block-end: 4rem;
+	}
 
-  useless-component,
-  useless-shadow-component {
-    display: block;
-    margin-block-end: 1rem;
-  }
+	useless-component,
+	useless-shadow-component {
+		display: block;
+		margin-block-end: 1rem;
+	}
 }
 
 @layer components {
-  #tldr {
-    display: flex;
-    justify-items: center;
+	#tldr {
+		display: flex;
+		justify-items: center;
 
-    summary h2 {
-      display: inline-block;
-    }
+		summary h2 {
+			display: inline-block;
+		}
 
-    li {
-      margin-block-end: 0.5rem;
-    }
-  }
+		li {
+			margin-block-end: 0.5rem;
+		}
+	}
 
-  .qAndA {
-    border: 1px solid black;
-    padding: 0.7rem;
-    border-radius: 8px;
-    margin-block-end: 0.5rem;
+	.qAndA {
+		border: 1px solid black;
+		padding: 0.7rem;
+		border-radius: 8px;
+		margin-block-end: 0.5rem;
 
-    > summary {
-      list-style-type: '\2753';
-    }
+		> summary {
+			list-style-type: '\2753';
+		}
 
-    &[open] > summary {
-      list-style-type: '\1F44C';
-    }
-  }
+		&[open] > summary {
+			list-style-type: '\1F44C';
+		}
+	}
 
-  useless-shadow-component {
-    h3 {
-      color: hotpink; /* Wont work because of shadow DOM */
-    }
-    p {
-      color: hotpink; /* Will work for all p's that are slotted */
-    }
-  }
+	.web-component {
+		border: 1px solid hotpink;
+		border-radius: 25px;
+	}
+
+	useless-shadow-component {
+		h3 {
+			color: green; /* Wont work because of shadow DOM */
+		}
+		p {
+			color: orangered; /* Will work for all p's that are slotted */
+		}
+	}
 }

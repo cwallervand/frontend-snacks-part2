@@ -34,13 +34,11 @@
 
 		<template id="uselessComponentTemplate">
 			<style>
-				.web-component {
-					padding: 2rem;
-					border: 1px solid hotpink;
-					border-radius: 25px;
+				.useless-component {
+					padding: 1.5rem;
 				}
 			</style>
-			<div class="web-component">
+			<div class="web-component useless-component">
 				<h3>Useless component title</h3>
 				<slot>
 					<p>And this is most certainly a useless slot.</p>
@@ -50,18 +48,18 @@
 
 		<template id="uselessShadowComponentTemplate">
 			<style>
-				.web-shadow-component {
-					padding: 2rem;
+				.useless-shadow-component {
 					border: 1px solid hotpink;
 					border-radius: 25px;
+					padding: 1.5rem;
 				}
 				::slotted(p) {
 					padding: 1rem;
-					border: 2px dotted hotpink;
-					color: purple;
+					border: 2px dotted navy;
+					color: blueviolet;
 				}
 			</style>
-			<div class="web-shadow-component">
+			<div class="useless-shadow-component web-component">
 				<h3>Useless shadow component title</h3>
 				<slot>
 					<p>But this is not a useless slot.</p>
@@ -129,7 +127,7 @@
 							was standardized, so we'll have to use multiple approaches for a while.
 						</q>
 					</p>
-					<p>
+					<div>
 						<b>Commonly asked questions</b>
 						<details class="qAndA" name="questionsThree">
 							<summary>What is your name?</summary>
@@ -143,7 +141,7 @@
 							<summary>What is the capital of Assyria?</summary>
 							<p>🤷</p>
 						</details>
-					</p>
+					</div>
 					<ul slot="topic-references">
 						<li>
 							<a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details">MDN: details element</a>
@@ -182,11 +180,11 @@
 							</li>
 						</ul>
 						<div>
-							<word-count> This use of word-count component won't work </word-count>
+							<p><word-count class="web-component"> This use of word-count component won't work </word-count></p>
 						</div>
 						<div>
 							But this use will work.
-							<span is="word-count"></span>
+							<span is="word-count" class="web-component"></span>
 						</div>
 
 						<useless-component>
@@ -196,15 +194,16 @@
 						<useless-shadow-component></useless-shadow-component>
 
 						<useless-shadow-component>
-							<p>This should replace the slot in useless-shadow-component</p>
+							<p>The content of slots can be replaced by the consumer of a web component.</p>
 						</useless-shadow-component>
 
 						<useless-shadow-component>
-							<div>Not a p-tag</div>
+							<div>This slot replacement is not a p-tag</div>
 						</useless-shadow-component>
 
 						<div class="web-component">
-							This is not a web component, but how does styling inside components affect the host page? 🤔🤔🤔
+							This is not a web component, but how does styling inside components affect the host page (and the other
+							way around)? 🤔🤔🤔
 						</div>
 					</div>
 					<ul slot="topic-references">
