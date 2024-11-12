@@ -1,379 +1,314 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Front-end snacks, part deux</title>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Front-end snacks, part deux</title>
 
-    <template id="topicSectionTemplate">
-      <style>
-        h2,
-        a.can-i-use {
-          align-self: center;
-        }
+		<template id="topicSectionTemplate">
+			<style>
+				h2,
+				a.can-i-use {
+					align-self: center;
+				}
 
-        .topic-references {
-          margin-block-start: 1rem;
-        }
+				.topic-references {
+					margin-block-start: 1rem;
+				}
 
-        a.can-i-use {
-          text-decoration: wavy underline;
-          margin-block-end: 0.5rem;
-        }
-      </style>
-      <section>
-        <h2>Topic title</h2>
-        <a href="#" class="can-i-use">Can I use it?</a>
-        <slot>Topic content slot</slot>
-        <div class="topic-references">
-          <h3>References</h3>
-          <slot name="topic-references"><p>No references</p></slot>
-        </div>
-      </section>
-    </template>
+				a.can-i-use {
+					text-decoration: wavy underline;
+					margin-block-end: 0.5rem;
+				}
+			</style>
+			<section>
+				<h2>Topic title</h2>
+				<a href="#" class="can-i-use">Can I use it?</a>
+				<slot>Topic content slot</slot>
+				<div class="topic-references">
+					<h3>References</h3>
+					<slot name="topic-references"><p>No references</p></slot>
+				</div>
+			</section>
+		</template>
 
-    <template id="uselessComponentTemplate">
-      <style>
-        .web-component {
-          padding: 2rem;
-          border: 1px solid hotpink;
-          border-radius: 25px;
-        }
-      </style>
-      <div class="web-component">
-        <h3>Useless component title</h3>
-        <slot>
-          <p>And this is most certainly a useless slot.</p>
-        </slot>
-      </div>
-    </template>
+		<template id="uselessComponentTemplate">
+			<style>
+				.web-component {
+					padding: 2rem;
+					border: 1px solid hotpink;
+					border-radius: 25px;
+				}
+			</style>
+			<div class="web-component">
+				<h3>Useless component title</h3>
+				<slot>
+					<p>And this is most certainly a useless slot.</p>
+				</slot>
+			</div>
+		</template>
 
-    <template id="uselessShadowComponentTemplate">
-      <style>
-        .web-shadow-component {
-          padding: 2rem;
-          border: 1px solid hotpink;
-          border-radius: 25px;
-        }
-        ::slotted(p) {
-          padding: 1rem;
-          border: 2px dotted hotpink;
-          color: purple;
-        }
-      </style>
-      <div class="web-shadow-component">
-        <h3>Useless shadow component title</h3>
-        <slot>
-          <p>But this is not a useless slot.</p>
-        </slot>
-        <p>Non-slotted p-tag</p>
-      </div>
-    </template>
-  </head>
+		<template id="uselessShadowComponentTemplate">
+			<style>
+				.web-shadow-component {
+					padding: 2rem;
+					border: 1px solid hotpink;
+					border-radius: 25px;
+				}
+				::slotted(p) {
+					padding: 1rem;
+					border: 2px dotted hotpink;
+					color: purple;
+				}
+			</style>
+			<div class="web-shadow-component">
+				<h3>Useless shadow component title</h3>
+				<slot>
+					<p>But this is not a useless slot.</p>
+				</slot>
+				<p>Non-slotted p-tag</p>
+			</div>
+		</template>
+	</head>
 
-  <body>
-    <div id="app">
-      <header>
-        <h1>Front-end snacks, part deux</h1>
-        <search id="findOnPageSearch">
-          <input type="search" id="findOnPageInput" aria-label="Find on page" />
-          <button type="submit">Find on page</button>
-        </search>
-      </header>
-      <main>
-        <section>
-          <details id="tldr">
-            <summary>
-              <h2>TLDR;</h2>
-            </summary>
-            <ul>
-              <li>
-                Semantic search element is here, use it to wrap (form) controls
-                that are used to do a search or filter.
-              </li>
-              <li>
-                New details (and summary) element. Can be used for exclusive
-                acordions.
-              </li>
-              <li>
-                CSS Cascade Layers can be used to better structure you CSS and
-                handle specificity issues.
-              </li>
-            </ul>
-          </details>
-        </section>
+	<body>
+		<div id="app">
+			<header>
+				<h1>Front-end snacks, part deux</h1>
+				<search id="findOnPageSearch">
+					<input type="search" id="findOnPageInput" aria-label="Find on page" />
+					<button type="submit">Find on page</button>
+				</search>
+			</header>
+			<main>
+				<section>
+					<details id="tldr">
+						<summary>
+							<h2>TLDR;</h2>
+						</summary>
+						<ul>
+							<li>
+								Semantic search element is here, use it to wrap (form) controls that are used to do a search or filter.
+							</li>
+							<li>New details (and summary) element. Can be used for exclusive acordions.</li>
+							<li>CSS Cascade Layers can be used to better structure you CSS and handle specificity issues.</li>
+						</ul>
+					</details>
+				</section>
 
-        <topic-section
-          topic-title="New search element"
-          can-i-use-href="https://caniuse.com/mdn-html_elements_search"
-        >
-          <p>
-            <q
-              cite="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/search"
-            >
-              The search HTML element is a container representing the parts of
-              the document or application with form controls or other content
-              related to performing a search or filtering operation. The search
-              element semantically identifies the purpose of the element's
-              contents as having search or filtering capabilities. The search or
-              filtering functionality can be for the website or application, the
-              current web page or document, or the entire Internet or subsection
-              thereof.
-            </q>
-          </p>
-          <ul slot="topic-references">
-            <li>
-              <a
-                href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/search"
-                >MDN: Search element
-              </a>
-            </li>
-          </ul>
-        </topic-section>
+				<topic-section topic-title="New search element" can-i-use-href="https://caniuse.com/mdn-html_elements_search">
+					<p>
+						<q cite="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/search">
+							The search HTML element is a container representing the parts of the document or application with form
+							controls or other content related to performing a search or filtering operation. The search element
+							semantically identifies the purpose of the element's contents as having search or filtering capabilities.
+							The search or filtering functionality can be for the website or application, the current web page or
+							document, or the entire Internet or subsection thereof.
+						</q>
+					</p>
+					<ul slot="topic-references">
+						<li>
+							<a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/search">MDN: Search element </a>
+						</li>
+					</ul>
+				</topic-section>
 
-        <topic-section
-          topic-title="New detalils (and summary) element"
-          can-i-use-href="https://caniuse.com/details"
-        >
-          <p>
-            HTML has a new details element. This can be used for esclusive
-            accordions.
-          </p>
-          <p>
-            <q
-              cite="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details"
-            >
-              You can use CSS to style the disclosure widget, and you can
-              programmatically open and close the widget by setting/removing its
-              open attribute. Unfortunately, at this time, there's no built-in
-              way to animate the transition between open and closed.
-            </q>
-          </p>
-          <p>
-            <q
-              cite="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details"
-            >
-              The disclosure triangle itself can be customized, although this is
-              not as broadly supported. There are variations in how browsers
-              support this customization due to experimental implementations as
-              the element was standardized, so we'll have to use multiple
-              approaches for a while.
-            </q>
-          </p>
-          <p>
-            <b>Commonly asked questions</b>
-            <details class="qAndA" name="questionsThree">
-              <summary>What is your name?</summary>
-              <p>Sir Robin of Camelot.</p>
-            </details>
-            <details class="qAndA" name="questionsThree">
-              <summary>What is your quest?</summary>
-              <p>To seek the Holy Grail.</p>
-            </details>
-            <details class="qAndA" name="questionsThree">
-              <summary>What is the capital of Assyria?</summary>
-              <p>🤷</p>
-            </details>
-          </p>
-          <ul slot="topic-references">
-            <li>
-              <a
-                href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details"
-                >MDN: details element</a
-              >
-            </li>
-            <li>
-              <a
-                href="https://developer.mozilla.org/en-US/blog/html-details-exclusive-accordions"
-                >MDN: Exclusive accordions</a
-              >
-            </li>
-          </ul>
-        </topic-section>
-        <topic-section
-          topic-title="A brief look at Web Components"
-          can-i-use-href="https://caniuse.com/css-cascade-layers"
-        >
-          <div>
-            <ul>
-              <li>
-                The name of a custom element must start with a lowercase letter,
-                contain a hyphen, and satisfy certain other rules listed in the
-                specification's definition of a valid name.
-              </li>
-              <li>
-                <p>
-                  There are two types of custom element you can create;
-                  autonomous custom elements and customized built-in elements.
-                </p>
-                <ul>
-                  <li>
-                    Autonomous custom elements are standalone elements, that
-                    don't inherit from built-in HTML elements.
-                  </li>
-                  <li>
-                    Customized built-in elements are elements that inherit from,
-                    and extend, built-in HTML elements. This approach has
-                    limited support because Safari does not plan to support
-                    built-in elements.
-                  </li>
-                </ul>
-              </li>
-            </ul>
-            <div>
-              <word-count>
-                This use of word-count component won't work
-              </word-count>
-            </div>
-            <div>
-              But this use will work.
-              <span is="word-count"></span>
-            </div>
+				<topic-section topic-title="New detalils (and summary) element" can-i-use-href="https://caniuse.com/details">
+					<p>HTML has a new details element. This can be used for esclusive accordions.</p>
+					<p>
+						<q cite="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details">
+							You can use CSS to style the disclosure widget, and you can programmatically open and close the widget by
+							setting/removing its open attribute. Unfortunately, at this time, there's no built-in way to animate the
+							transition between open and closed.
+						</q>
+					</p>
+					<p>
+						<q cite="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details">
+							The disclosure triangle itself can be customized, although this is not as broadly supported. There are
+							variations in how browsers support this customization due to experimental implementations as the element
+							was standardized, so we'll have to use multiple approaches for a while.
+						</q>
+					</p>
+					<p>
+						<b>Commonly asked questions</b>
+						<details class="qAndA" name="questionsThree">
+							<summary>What is your name?</summary>
+							<p>Sir Robin of Camelot.</p>
+						</details>
+						<details class="qAndA" name="questionsThree">
+							<summary>What is your quest?</summary>
+							<p>To seek the Holy Grail.</p>
+						</details>
+						<details class="qAndA" name="questionsThree">
+							<summary>What is the capital of Assyria?</summary>
+							<p>🤷</p>
+						</details>
+					</p>
+					<ul slot="topic-references">
+						<li>
+							<a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details">MDN: details element</a>
+						</li>
+						<li>
+							<a href="https://developer.mozilla.org/en-US/blog/html-details-exclusive-accordions"
+								>MDN: Exclusive accordions</a
+							>
+						</li>
+					</ul>
+				</topic-section>
+				<topic-section
+					topic-title="A brief look at Web Components"
+					can-i-use-href="https://caniuse.com/css-cascade-layers">
+					<div>
+						<ul>
+							<li>
+								The name of a custom element must start with a lowercase letter, contain a hyphen, and satisfy certain
+								other rules listed in the specification's definition of a valid name.
+							</li>
+							<li>
+								<p>
+									There are two types of custom element you can create; autonomous custom elements and customized
+									built-in elements.
+								</p>
+								<ul>
+									<li>
+										Autonomous custom elements are standalone elements, that don't inherit from built-in HTML elements.
+									</li>
+									<li>
+										Customized built-in elements are elements that inherit from, and extend, built-in HTML elements.
+										This approach has limited support because Safari does not plan to support built-in elements.
+									</li>
+								</ul>
+							</li>
+						</ul>
+						<div>
+							<word-count> This use of word-count component won't work </word-count>
+						</div>
+						<div>
+							But this use will work.
+							<span is="word-count"></span>
+						</div>
 
-            <useless-component>
-              <p>This should replace the slot in useless-demo-component</p>
-            </useless-component>
+						<useless-component>
+							<p>This should replace the slot in useless-demo-component</p>
+						</useless-component>
 
-            <useless-shadow-component></useless-shadow-component>
+						<useless-shadow-component></useless-shadow-component>
 
-            <useless-shadow-component>
-              <p>This should replace the slot in useless-shadow-component</p>
-            </useless-shadow-component>
+						<useless-shadow-component>
+							<p>This should replace the slot in useless-shadow-component</p>
+						</useless-shadow-component>
 
-            <useless-shadow-component>
-              <div>Not a p-tag</div>
-            </useless-shadow-component>
+						<useless-shadow-component>
+							<div>Not a p-tag</div>
+						</useless-shadow-component>
 
-            <div class="web-component">
-              This is not a web component, but how does styling inside
-              components affect the host page? 🤔🤔🤔
-            </div>
-          </div>
-          <ul slot="topic-references">
-            <li>
-              <a
-                href="https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_custom_elements"
-                >MDN: Using custom elements
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://developer.mozilla.org/en-US/docs/Web/API/CustomElementRegistry"
-              >
-                MDN: CustomElementRegistry
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/is#browser_compatibility"
-              >
-                MDN: is attribute
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/template"
-                >MDN: HTML template element</a
-              >
-            </li>
-            <li>
-              <a
-                href="https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_templates_and_slots"
-                >MDN: Using templates and slots</a
-              >
-            </li>
-            <li>
-              <a
-                href="https://eisenbergeffect.medium.com/using-global-styles-in-shadow-dom-5b80e802e89d"
-              >
-                Using global styles in Shadow DOM
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://developer.mozilla.org/en-US/docs/Web/API/ShadowRoot/adoptedStyleSheets"
-              >
-                MDN: Adopted Style Sheets
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://developer.mozilla.org/en-US/docs/Web/CSS/::slotted"
-                >MDN: ::slotted pseudo-class
-              </a>
-            </li>
-          </ul>
-        </topic-section>
-        <topic-section
-          topic-title="CSS Cascade Layers"
-          can-i-use-href="https://caniuse.com/css-cascade-layers"
-        >
-          <p>
-            <strong>This paragraph is just a plain old p-tag.</strong>
-            <br />Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-            do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-            enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
-            ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum.
-          </p>
-          <p class="paragraph">
-            <strong>This paragraph is a p-tag with class "paragraph".</strong>
-            <br />Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-            do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-            enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
-            ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum.
-          </p>
-          <p class="paragraph quote">
-            <strong
-              >This paragraph is a p-tag with class "paragraph" and
-              "quote".</strong
-            >
-            <br />
-            <q>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-              reprehenderit in voluptate velit esse cillum dolore eu fugiat
-              nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-              sunt in culpa qui officia deserunt mollit anim id est laborum.</q
-            >
-          </p>
-          <ul slot="topic-references">
-            <li>
-              <a
-                href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Cascade_layers"
-                >MDN: Cascade Layers</a
-              >
-            </li>
-            <li>
-              <a href="https://www.youtube.com/watch?v=NDNRGW-_1EE"
-                >YouTube: No more specificity issues?! (or all new ones 🤔) - A
-                look at CSS Cascade Layers</a
-              >
-            </li>
-            <li>
-              <a href="https://www.youtube.com/watch?v=ilrPpSQJb3U"
-                >YouTube: CSS Cascade Layers: An overview of the new @layer and
-                layer() CSS primitives
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://www.bram.us/2021/09/15/the-future-of-css-cascade-layers-css-at-layer/"
-              >
-                Bram.us: The Future of CSS: Cascade Layers (CSS @layer)
-              </a>
-            </li>
-          </ul>
-        </topic-section>
-      </main>
-    </div>
-    <script type="module" src="/main.js"></script>
-  </body>
+						<div class="web-component">
+							This is not a web component, but how does styling inside components affect the host page? 🤔🤔🤔
+						</div>
+					</div>
+					<ul slot="topic-references">
+						<li>
+							<a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_custom_elements"
+								>MDN: Using custom elements
+							</a>
+						</li>
+						<li>
+							<a href="https://developer.mozilla.org/en-US/docs/Web/API/CustomElementRegistry">
+								MDN: CustomElementRegistry
+							</a>
+						</li>
+						<li>
+							<a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/is#browser_compatibility">
+								MDN: is attribute
+							</a>
+						</li>
+						<li>
+							<a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/template"
+								>MDN: HTML template element</a
+							>
+						</li>
+						<li>
+							<a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_templates_and_slots"
+								>MDN: Using templates and slots</a
+							>
+						</li>
+						<li>
+							<a href="https://eisenbergeffect.medium.com/using-global-styles-in-shadow-dom-5b80e802e89d">
+								Using global styles in Shadow DOM
+							</a>
+						</li>
+						<li>
+							<a href="https://developer.mozilla.org/en-US/docs/Web/API/ShadowRoot/adoptedStyleSheets">
+								MDN: Adopted Style Sheets
+							</a>
+						</li>
+						<li>
+							<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/::slotted">MDN: ::slotted pseudo-class </a>
+						</li>
+					</ul>
+				</topic-section>
+				<topic-section topic-title="CSS Cascade Layers" can-i-use-href="https://caniuse.com/css-cascade-layers">
+					<p>
+						<q cite="https://developer.mozilla.org/en-US/docs/Web/CSS/@layer">
+							Rules within a cascade layer cascade together, giving more control over the cascade to web developers.
+							Styles that are not defined in a layer always override styles declared in named and anonymous layers.
+						</q>
+					</p>
+					<p>
+						<strong>This paragraph is just a plain old p-tag.</strong>
+						<br />Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+						dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+						ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+						nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
+						anim id est laborum.
+					</p>
+					<p class="paragraph">
+						<strong>This paragraph is a p-tag with class "paragraph".</strong>
+						<br />Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+						dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+						ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+						nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
+						anim id est laborum.
+					</p>
+					<p class="paragraph quote">
+						<strong>This paragraph is a p-tag with class "paragraph" and "quote".</strong>
+						<br />
+						<q>
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+							dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+							ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+							fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+							mollit anim id est laborum.</q
+						>
+					</p>
+					<ul slot="topic-references">
+						<li>
+							<a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Cascade_layers"
+								>MDN: Cascade Layers</a
+							>
+						</li>
+						<li>
+							<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@layer"> MDN: @layer </a>
+						</li>
+						<li>
+							<a href="https://www.youtube.com/watch?v=NDNRGW-_1EE"
+								>YouTube: No more specificity issues?! (or all new ones 🤔) - A look at CSS Cascade Layers</a
+							>
+						</li>
+						<li>
+							<a href="https://www.youtube.com/watch?v=ilrPpSQJb3U"
+								>YouTube: CSS Cascade Layers: An overview of the new @layer and layer() CSS primitives
+							</a>
+						</li>
+						<li>
+							<a href="https://www.bram.us/2021/09/15/the-future-of-css-cascade-layers-css-at-layer/">
+								Bram.us: The Future of CSS: Cascade Layers (CSS @layer)
+							</a>
+						</li>
+					</ul>
+				</topic-section>
+			</main>
+		</div>
+		<script type="module" src="/main.js"></script>
+	</body>
 </html>
