@@ -3,6 +3,10 @@ class WordCount extends HTMLSpanElement {
 		super();
 	}
 
+	/*
+		Called each time the element is added to the document. 
+		The specification recommends that, as far as possible, developers should implement custom element setup in this callback rather than the constructor.
+	*/
 	connectedCallback() {
 		const parentNode = this.parentNode;
 		const count = `Word count: ${countWords(parentNode)}`;
@@ -10,8 +14,9 @@ class WordCount extends HTMLSpanElement {
 	}
 }
 
+// The name of a custom element must start with a lowercase letter, contain a hyphen, and satisfy certain other rules listed in the specification's definition of a valid name.
 customElements.define('word-count', WordCount, {
-	extends: 'span',
+	extends: 'span', // According to specs this must be specified
 });
 
 function countWords(node) {
