@@ -49,22 +49,22 @@
 		<template id="uselessShadowComponentTemplate">
 			<style>
 				.useless-shadow-component {
-					border: 1px solid hotpink;
+					border: 2px solid green;
 					border-radius: 25px;
 					padding: 1.5rem;
 				}
 				::slotted(p) {
 					padding: 1rem;
-					border: 2px dotted navy;
+					border: 4px dotted navy;
 					color: blueviolet;
 				}
 			</style>
 			<div class="useless-shadow-component web-component">
 				<h3>Useless shadow component title</h3>
 				<slot>
-					<p>But this is not a useless slot.</p>
+					<p>This paragraph is in a slot and might not be so useless.</p>
 				</slot>
-				<p>Non-slotted p-tag</p>
+				<p>This paragraph is not in a slot and can not be replaced by the consumer of the web component.</p>
 			</div>
 		</template>
 	</head>
@@ -189,7 +189,7 @@
 						</div>
 
 						<useless-component>
-							<p>This should replace the slot in useless-demo-component</p>
+							<p>This should replace the useless slot in useless-component</p>
 						</useless-component>
 
 						<useless-shadow-component></useless-shadow-component>
@@ -199,7 +199,7 @@
 						</useless-shadow-component>
 
 						<useless-shadow-component>
-							<div>This slot replacement is not a p-tag</div>
+							<div>This slot replacement is not a paragraph but an awesome div.</div>
 						</useless-shadow-component>
 
 						<div class="web-component">
@@ -216,6 +216,16 @@
 						<li>
 							<a href="https://developer.mozilla.org/en-US/docs/Web/API/CustomElementRegistry">
 								MDN: CustomElementRegistry
+							</a>
+						</li>
+						<li>
+							<a href="https://developer.mozilla.org/en-US/docs/Web/API/CustomElementRegistry/define">
+								MDN: CustomElementRegistry, define()
+							</a>
+						</li>
+						<li>
+							<a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/attachShadow">
+								MDN: attachShadow() method
 							</a>
 						</li>
 						<li>
@@ -248,6 +258,7 @@
 						</li>
 					</ul>
 				</topic-section>
+				<!-- <topic-section></topic-section> -->
 				<topic-section topic-title="CSS Cascade Layers" can-i-use-href="https://caniuse.com/css-cascade-layers">
 					<p>
 						<q cite="https://developer.mozilla.org/en-US/docs/Web/CSS/@layer">
