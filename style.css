@@ -130,7 +130,8 @@
 @layer components {
 	#tldr {
 		display: flex;
-		justify-items: center;
+		flex-direction: column;
+		align-items: center;
 
 		summary h2 {
 			display: inline-block;
