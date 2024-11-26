@@ -25,11 +25,11 @@ class TopicScection extends HTMLElement {
 		const template = document.getElementById('topicSectionTemplate');
 		const templateContent = template.content;
 
-		const sharedStlyeSheet = getSharedStyleSheets();
+		const sharedStyleSheet = getSharedStyleSheets();
 
 		const shadowRoot = this.attachShadow({ mode: 'open' });
 		shadowRoot.appendChild(templateContent.cloneNode(true));
-		shadowRoot.adoptedStyleSheets = sharedStlyeSheet;
+		shadowRoot.adoptedStyleSheets = sharedStyleSheet;
 	}
 
 	attributeChangedCallback(name, oldValue, newValue) {
