@@ -81,6 +81,7 @@
 	h2 {
 		margin-block-end: 0.7rem;
 		font-size: 1.5rem;
+		color: orangered;
 	}
 
 	details {
@@ -93,6 +94,11 @@
 
 	p {
 		margin-block: 0.7rem;
+		color: #202020;
+	}
+
+	p.paragraph.quote {
+		color: fuchsia;
 	}
 }
 
@@ -170,4 +176,27 @@
 			color: orangered; /* Will work for all p's that are slotted */
 		}
 	}
+
+	.paragraph.quote {
+		color: maroon;
+	}
+}
+
+p {
+	color: black;
+}
+
+p.paragraph {
+	color: green;
+}
+
+.paragraph {
+	color: blue;
+}
+
+p.paragraph.quote {
+	color: fuchsia;
+}
+.paragraph.quote {
+	color: teal;
 }
