@@ -191,11 +191,11 @@
 	}
 }
 
-p {
+/* p {
 	color: black;
-}
+} */
 
-p.paragraph {
+/* p.paragraph {
 	color: green;
 }
 
@@ -208,4 +208,4 @@ p.paragraph.quote {
 }
 .paragraph.quote {
 	color: teal;
-}
+} */
